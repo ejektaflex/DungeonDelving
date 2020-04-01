@@ -14,7 +14,7 @@ fun main() {
 
     DungeonBuilder {
 
-        val floor1 = addFloor("main", 4 x 6) {
+        val floor1 = addFloor("main", 30 x 30) {
 
 
         }
@@ -26,6 +26,8 @@ fun main() {
         val creator = FloorCreator(floor1, 0 x 0)
 
         creator.start()
+
+        println(floor1.getTile(Vector2(1, 1))!!.links)
 
 
 

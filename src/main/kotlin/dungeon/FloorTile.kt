@@ -7,6 +7,8 @@ class FloorTile(val floor: Floor) {
 
     var room: Room? = null
 
+    var dist = 0
+
     val links = mutableMapOf<FloorTile, Passage>()
 
     val position: Vector2
