@@ -2,6 +2,7 @@ package dungeon
 
 import Vector2
 import dungeon.room.Room
+import kotlin.math.abs
 
 class FloorTile(val floor: Floor) {
 
@@ -18,6 +19,15 @@ class FloorTile(val floor: Floor) {
         links[other] = passage
         other.links[this] = passage
     }
+
+    fun isLinked(other: FloorTile): Boolean {
+        return other in links
+    }
+
+    val furthestDist: Int
+        get() {
+            return abs(links.maxBy { abs(it.key.dist - dist) }!!.key.dist - dist)
+        }
 
     fun unlink(other: FloorTile) {
         if (other in links) {
